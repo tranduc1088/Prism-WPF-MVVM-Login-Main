@@ -1,0 +1,40 @@
+﻿<UserControl x:Class="Demo.Menu.Views.MenuUC"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:Demo.Menu.Views"
+             mc:Ignorable="d" 
+             xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+             >
+    <UserControl.Resources>
+        <ResourceDictionary Source="pack://application:,,,/Demo.Common;component/Styles.xaml"/>
+    </UserControl.Resources>
+    <!--<UserControl.DataContext>
+        <Binding Source="{StaticResource menuVM}"/>
+    </UserControl.DataContext>-->
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition>
+            </RowDefinition>
+        </Grid.RowDefinitions>
+        <MenuItem  Grid.Row="0"  
+                        Icon="{materialDesign:PackIcon Kind=AccountCircle}"
+                        Header="{Binding UserDisplayName}">
+            <MenuItem
+                          Header="_Tài Khoản"
+                          Command="{Binding UserCommand}"  ToolTip="Người Dùng"
+                          Icon="{materialDesign:PackIcon Kind=Cog}" />
+            <MenuItem
+                          Header="_Lịch sử thao tác"
+                          Command="{Binding UserHistoryCommand}"  ToolTip="Lịch sử thao tác"
+                          Icon="{materialDesign:PackIcon Kind=History}" />
+            <MenuItem
+                          Header="_Đăng Xuất"
+                          Command="{Binding LogoutCommand}"
+                          CommandParameter="{Binding ElementName=mainWindow}"
+                          ToolTip="Đăng xuất tài khoản"
+                          Icon="{materialDesign:PackIcon Kind=Logout}" />
+        </MenuItem>
+    </Grid>
+</UserControl>
